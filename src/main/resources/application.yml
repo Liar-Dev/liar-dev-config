@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: config-service
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: ---- Secret ----
+          default-label: main
+          search-paths: liar-dev-yml
+          privateKey: ---- Secret ----
+          skip-ssl-validation: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace, busrefresh
